@@ -1,0 +1,781 @@
+.dialog {
+  width: 100%;
+  background: #080808;
+  font-family: "Handjet", cursive;
+  padding-bottom: 80px;
+  min-height: 100vh;
+  height: 1px;
+}
+
+.dialog__content {
+  width: 70%;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: 100%;
+  padding-bottom: 10px;
+}
+
+.dialog__header {
+  width: 100%;
+  height: 50px;
+  padding: 7px 10px 7px 23px;
+  color: #dadada;
+  border-bottom: 1px solid #dadada;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.dialog__left {
+  display: flex;
+  align-items: center;
+}
+
+.dialog__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.dialog__name {
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+}
+
+.dialog__time {
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.dialog__right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 50;
+}
+
+.dialog__search__input {
+  width: 200px;
+  opacity: 0;
+  transform: translateX(40px) scaleX(0);
+  background: #2b2b2b;
+  color: #dadada;
+  border: 0;
+  border-radius: 8px;
+  padding: 5px 9px;
+  font-family: "Handjet", cursive;
+  transition: all 0.6s ease;
+  transform-origin: right;
+}
+
+.dialog__search__input:focus {
+  outline: none;
+}
+
+.dialog__search__input::placeholder {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.dialog__search__input.show {
+  transform: translateX(0) scaleX(1);
+  opacity: 1;
+}
+
+.dialog__search {
+  width: 16px;
+  height: 16px;
+  background: url(./images/search.png) no-repeat center;
+  background-size: cover;
+  opacity: 0.7;
+  margin-left: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dialog__search:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.dialog__more {
+  width: 24px;
+  height: 24px;
+  background: url(./images/more.png) no-repeat center;
+  background-size: cover;
+  margin-left: 20px;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dialog__more:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.dialog__mute {
+  width: 12px;
+  height: 12px;
+  margin-left: 5px;
+  background: url(./images/mute.png) no-repeat center;
+  background-size: cover;
+  opacity: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dialog__mute.show {
+  opacity: 0.7;
+  animation: showMute 0.6s ease;
+}
+
+@keyframes showMute {
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.dialog__options {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  opacity: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  z-index: 0;
+}
+
+.dialog__options.show {
+  top: 120%;
+  opacity: 1;
+  z-index: 50;
+}
+
+.dialog__option {
+  background: #dadada;
+  color: #080808;
+  padding: 3px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dialog__option:hover {
+  background: rgba(218, 218, 218, 0.8);
+}
+
+.dialog__media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(8, 8, 8, 0.8);
+  z-index: 20;
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.dialog__media.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.dialog__media__inner {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  background: rgba(218, 218, 218, 0.7);
+  z-index: 10;
+  padding: 10px 5px;
+}
+
+.dialog__media__title {
+  margin: 10px;
+  font-size: 20px;
+}
+
+.dialog__items {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.dialog__media__item {
+  min-width: 33%;
+  width: 200px;
+  height: 350px;
+  cursor: pointer;
+}
+
+.dialog__media__close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 16px;
+  height: 16px;
+  background: url(./images/cancel.png) no-repeat center;
+  background-size: cover;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dialog__media__close:hover {
+  transform: scale(1.1);
+}
+
+.dialog__question {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(8, 8, 8, 0.8);
+  z-index: 20;
+  display: none;
+}
+
+.dialog__question.show {
+  display: block;
+}
+
+.dialog__question__inner {
+  width: 30%;
+  background: #dadada;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 10px 20px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.dialog__question__title {
+  margin-bottom: 20px;
+}
+
+.dialog__question__close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 12px;
+  height: 12px;
+  background: url(./images/cancel.png) no-repeat center;
+  background-size: cover;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dialog__question__close:hover {
+  transform: scale(1.1);
+}
+
+.dialog__question__btn {
+  padding: 6px 15px;
+  background: #080808;
+  color: #dadada;
+  border: none;
+  font-family: "Handjet", cursive;
+  border-radius: 10px;
+  font-size: 16px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dialog__question__btn:hover {
+  transform: scale(1.1);
+}
+
+.dialog__content__messages {
+  width: 100%;
+  height: 86%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  overflow-y: scroll;
+}
+
+.dialog__content__messages::-webkit-scrollbar {
+  width: 5px;
+}
+
+.dialog__content__messages::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.dialog__content__messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dialog__content__messages.show::-webkit-scrollbar {
+  width: 5px;
+}
+
+.dialog__content__messages.show::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: rgba(218, 218, 218, 0.4);
+}
+
+.dialog__content__messages.show::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dialog__message {
+  max-width: 50%;
+  padding: 10px;
+  background: #dadada;
+  color: #080808;
+  padding: 15px 15px 18px 15px;
+  border-radius: 12px;
+  margin: 3px 0;
+  position: relative;
+  letter-spacing: 0.2px;
+  min-width: 60px;
+  cursor: pointer;
+  position: relative;
+}
+
+.dialog__message.sent {
+  background: #9486e5;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.dialog__message.received {
+  background: #dadada;
+  align-self: flex-start;
+  text-align: left;
+}
+
+.dialog__message.none {
+  display: none;
+}
+
+.dialog__message.matched {
+  padding: 190px;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 100%;
+  height: 100%;
+  background: transparent;
+  color: #9486e5;
+  font-size: 80px;
+  text-shadow: 0px 0px 23.219999313354492px #9486e5,
+    0px 0px 46.439998626708984px #9486e5;
+}
+
+.dialog__message.deleted {
+  animation: messageDelete 0.3s ease forwards;
+}
+
+@keyframes messageDelete {
+  30% {
+    transform: translateX(-10px);
+  }
+  60% {
+    transform: translateX(10px);
+    opacity: 1;
+  }
+  90% {
+    transform: translateX(-10px) scale(1);
+  }
+  100% {
+    transform: translateX(0) scale(0);
+    opacity: 0;
+  }
+}
+
+.dialog__message__delete {
+  position: absolute;
+  top: 50%;
+  left: -25px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: url(./images/bin.png) no-repeat center;
+  background-size: cover;
+  transition: all 0.3s ease;
+  display: none;
+}
+
+.dialog__message__delete.show {
+  display: block;
+}
+
+.dialog__message__delete.show:hover {
+  transform: translateY(-50%) scale(1.2);
+}
+
+.dialog__message__media {
+  width: 200px;
+}
+
+.dialog__message__media__item {
+  width: 100%;
+  height: 300px;
+  cursor: pointer;
+}
+
+.dialog__message__time {
+  position: absolute;
+  bottom: 1px;
+  right: 8px;
+  font-size: 12px;
+  color: #dadada;
+  display: flex;
+  align-items: flex-start;
+}
+
+.dialog__message__time.none {
+  display: none;
+}
+
+.dialog__message__time span:first-child {
+  margin-right: 3px;
+}
+
+.dialog__message__time span:last-child {
+  margin-left: -6px;
+}
+
+.dialog__message__time span.none {
+  display: none;
+}
+
+.dialog__message.received .dialog__message__time {
+  color: #080808;
+}
+
+.dialog__content__area {
+  width: 100%;
+  height: 8%;
+  position: relative;
+}
+
+.dialog__content__input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 1px solid #dadada;
+  color: #dadada;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-family: "Handjet", cursive;
+}
+
+.dialog__content__input::placeholder {
+  font-size: 16px;
+}
+
+.dialog__content__input:focus {
+  outline: none;
+}
+
+.dialog__content__btn {
+  height: 70%;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 12px;
+  border: none;
+  font-family: "Handjet", cursive;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.dialog__content__btn:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.location__page__slider {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(8, 8, 8, 0.95);
+  z-index: 150;
+  display: none;
+}
+
+.location__page__slider.show {
+  display: block;
+}
+
+.location__page__slider__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  background: url(./images/cancel.png) no-repeat center;
+  background-size: cover;
+  cursor: pointer;
+  z-index: 150;
+  transition: all 0.3s ease;
+}
+
+.location__page__slider__close:hover {
+  transform: scale(1.1);
+}
+
+.location__page__arrow {
+  position: absolute;
+  width: 10%;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.location__page__slider__left {
+  top: 0;
+  left: 0;
+}
+
+.location__page__slider__right {
+  top: 0;
+  right: 0;
+}
+
+.location__page__arrow__icon {
+  width: 30px;
+  height: 30px;
+  transition: all 0.3s ease;
+  z-index: 150;
+}
+
+.location__page__arrow__icon:hover {
+  transform: scale(1.1);
+}
+
+.location__page__arrow__icon__left {
+  background: url(./images/left-arrow.png) no-repeat center;
+  background-size: cover;
+}
+
+.location__page__arrow__icon__right {
+  background: url(./images/right-arrow.png) no-repeat center;
+  background-size: cover;
+}
+
+.location__page__photo {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.location__page__save {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.location__page__save:hover {
+  transform: scale(1.1);
+}
+
+.location__page__icon__unsaved {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(./images/bookmark.png) no-repeat center;
+  background-size: cover;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.location__page__icon__saved {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(./images/bookmark1.png) no-repeat center;
+  background-size: cover;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.location__page__icon__unsaved.show,
+.location__page__icon__saved.show {
+  opacity: 1;
+}
+
+.dialog__content__nomessages {
+  color: #dadada;
+  font-size: 15px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog__content__block {
+  width: 100%;
+  height: 100%;
+  color: #dadada;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog__media__nophotos {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.dialog__nomessage {
+  color: #dadada;
+  font-size: 12px;
+  align-self: center;
+}
+
+/* Media */
+@media (max-width: 800px) {
+  .dialog__content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 730px) {
+  .dialog__content {
+    padding: 0 20px 10px;
+  }
+}
+
+@media (max-width: 700px) {
+  .dialog__question__inner {
+    width: 80%;
+    padding: 30px 20px;
+  }
+  .dialog__question__close {
+    top: 10px;
+    right: 10px;
+    width: 18px;
+    height: 18px;
+  }
+  .dialog__question__title {
+    font-size: 25px;
+  }
+  .dialog__question__btn {
+    font-size: 21px;
+    margin: 0 10px;
+  }
+}
+
+@media (max-width: 670px) {
+  .dialog__message.matched {
+    padding: 110px;
+  }
+}
+
+@media (max-width: 515px) {
+  .dialog__message.matched {
+    padding: 60px;
+  }
+}
+
+@media (max-width: 500px) {
+  .dialog__time {
+    white-space: nowrap;
+  }
+  .dialog__search__input {
+    width: 150px;
+  }
+  .dialog__message {
+    max-width: 70%;
+  }
+  .dialog__message__media {
+    width: 200px;
+  }
+  .dialog__media__inner {
+    top: 50%;
+    width: 80%;
+    max-height: 80%;
+  }
+  .dialog__media__item {
+    width: 30%;
+  }
+}
+
+@media (max-width: 400px) {
+  .dialog__message.matched {
+    padding: 100px 0 0;
+  }
+}
+
+@media (max-width: 425px) {
+  .dialog__header {
+    padding: 0;
+    justify-content: space-around;
+  }
+  .dialog__message__media {
+    width: 180px;
+  }
+}
+
+@media (max-width: 375px) {
+  .dialog__search__input {
+    position: absolute;
+    top: 115%;
+    transform: translateX(50px);
+    width: 0;
+  }
+  .dialog__search__input.show {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+  }
+  .dialog__message__media {
+    width: 160px;
+  }
+  .dialog__message__media__item {
+    height: 250px;
+  }
+}
+
+@media (max-height: 730px) {
+  .dialog__content__area {
+    min-height: 11%;
+  }
+  .dialog__content__btn {
+    padding: 4px 20px;
+  }
+}

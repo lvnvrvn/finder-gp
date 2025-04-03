@@ -1,0 +1,254 @@
+.search {
+  width: 100%;
+  background: #080808;
+  font-family: "Handjet", cursive;
+  padding-bottom: 80px;
+  min-height: 100vh;
+}
+
+.search__content {
+  width: 52%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.search__content__search {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.search__form {
+  width: 94%;
+  position: relative;
+}
+
+.search__form::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: url(./images/search.png) no-repeat center;
+  background-size: cover;
+  opacity: 0.7;
+}
+
+.search__input {
+  width: 100%;
+  background: #2b2b2b;
+  color: #dadada;
+  border: 0;
+  border-radius: 12px;
+  padding: 9px 9px 9px 35px;
+  font-family: "Handjet", cursive;
+  transition: all 0.2s ease;
+}
+
+.search__input:focus {
+  outline: 1px dashed #dadada;
+}
+
+.search__input::placeholder {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.search__input__find__place {
+  position: absolute;
+  top: 48%;
+  right: 4px;
+  transform: translate(0, -50%);
+  font-size: 15px;
+  color: #080808;
+  background: #dadada;
+  border-radius: 9px;
+  padding: 3px 7px;
+  transition: all 0.3s ease;
+}
+
+.search__input__find__place:hover {
+  transform: translate(-3%, -50%) scale(1.05);
+}
+
+.search__filter {
+  width: 24px;
+  height: 24px;
+  background: url(./images/filter.png) no-repeat center;
+  background-size: cover;
+  display: block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.search__filter:hover {
+  transform: scale(0.9);
+}
+
+.search__filter__options {
+  position: absolute;
+  top: 30%;
+  right: -14%;
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: none;
+}
+
+.search__filter__options.active {
+  display: block;
+}
+
+.search__filter__options__item {
+  background: #dadada;
+  padding: 3px 20px;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.search__filter__options__item:hover {
+  background: rgba(218, 218, 218, 0.8);
+}
+
+/* Locations */
+.search__content__locations {
+  width: 100%;
+  padding: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.search__content__notfound {
+  width: 100%;
+  height: 600px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #dadada;
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.search__content__notfound.show {
+  display: flex;
+}
+
+.search__content__notfound__title {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.search__content__notfound__icon {
+  width: 50px;
+  height: 50px;
+  background: url(./images/no-results.png) no-repeat center;
+  background-size: cover;
+}
+
+.search__content__notfound.show .search__content__notfound__icon {
+  animation: iconAnimation 1.2s ease 0.3s;
+}
+
+/* Media */
+@media (max-width: 1300px) {
+  .search__location__item__dot {
+    margin-left: 4px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .search__content {
+    width: 62%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .search__content {
+    width: 74%;
+  }
+  .search__filter__options {
+    top: 120%;
+    right: 0%;
+  }
+  .search__location__title {
+    font-size: 13px;
+  }
+  .search__location__nav {
+    margin-bottom: 4px;
+  }
+  .search__location__profile__photo {
+    bottom: 9px;
+  }
+}
+
+@media (max-width: 770px) {
+  .search__content {
+    width: 94%;
+  }
+}
+
+@media (max-width: 600px) {
+  .search__content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .search__content {
+    width: 100%;
+  }
+  .search__content__locations {
+    flex-direction: column;
+    align-items: center;
+  }
+  .search__form {
+    width: 92%;
+  }
+  .search__filter {
+    margin-left: 10px;
+  }
+  .search__location__item {
+    width: 100%;
+    height: 500px;
+  }
+  .search__location__title {
+    font-size: 16px;
+  }
+  .search__location__profile__photo {
+    width: 24px;
+    height: 24px;
+  }
+  .search__location__item__dot {
+    min-width: 6px;
+    height: 6px;
+    margin-left: 6px;
+  }
+}
+
+@media (max-width: 400px) {
+  .search__location__nav {
+    margin-bottom: 5px;
+  }
+  .search__location__title {
+    font-size: 15px;
+  }
+  .search__location__item__dot {
+    min-width: 5px;
+    height: 5px;
+    margin-left: 4px;
+  }
+}
+
+@media (max-width: 315px) {
+  .search__location__profile__photo {
+    left: 10px;
+    bottom: 33px;
+    transform: translateX(0);
+  }
+}

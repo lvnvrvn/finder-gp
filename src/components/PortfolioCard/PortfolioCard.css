@@ -1,0 +1,169 @@
+.profile__portfolio__item {
+  width: 49%;
+  height: 400px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 50;
+}
+
+.profile__portfolio__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, black -15%, transparent 60%);
+  border-radius: 12px;
+  z-index: 10;
+}
+
+.profile__portfolio__item.removed {
+  animation: photoRemoved 0.7s ease forwards;
+}
+
+@keyframes photoRemoved {
+  25% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.profile__portfolio__item__inner {
+  position: absolute;
+  width: 100%;
+  height: 14%;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 30;
+}
+
+.profile__portfolio__item__nav {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+
+.profile__portfolio__item__dot {
+  min-width: 5px;
+  height: 5px;
+  border: 1px solid #dadada;
+  margin-right: 5px;
+}
+
+.profile__portfolio__item__dot.active {
+  background: #dadada;
+}
+
+.profile__portfolio__item__title {
+  width: 50%;
+  text-align: right;
+}
+
+.profile__portfolio__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.profile__portfolio__img.show {
+  opacity: 1;
+}
+
+.profile__portfolio__switch {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  opacity: 0;
+  transition: all 0.5s ease;
+  z-index: 20;
+}
+
+.profile__portfolio__item__prev {
+  left: 0;
+  background: linear-gradient(to right, rgba(8, 8, 8, 0.4), transparent);
+}
+
+.profile__portfolio__item__next {
+  left: 50%;
+  background: linear-gradient(to right, transparent, rgba(8, 8, 8, 0.2));
+}
+
+.profile__portfolio__switch:hover {
+  opacity: 1;
+}
+
+.profile__portfolio__item__delete {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  background: url(./images/forbidden.png) no-repeat center;
+  background-size: cover;
+  z-index: 30;
+  transition: all 0.3s ease;
+  display: none;
+}
+
+.profile__portfolio__item__delete:hover {
+  transform: scale(1.1);
+}
+
+.profile__portfolio__item__delete.show {
+  display: block;
+}
+
+.profile__portfolio__item__edit {
+  position: absolute;
+  top: 7px;
+  right: 32px;
+  width: 17px;
+  height: 17px;
+  background: url(./images/pencil.png) no-repeat center;
+  background-size: cover;
+  z-index: 30;
+  transition: all 0.3s ease;
+  display: none;
+}
+
+.profile__portfolio__item__edit:hover {
+  transform: scale(1.1);
+}
+
+.profile__portfolio__item__edit.show {
+  display: block;
+}
+
+.profile__portfolio__item__full {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 14px;
+  height: 14px;
+  background: url(./images/full-screen.png) no-repeat center;
+  background-size: cover;
+  z-index: 30;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.profile__portfolio__item__full.show {
+  opacity: 1;
+}
