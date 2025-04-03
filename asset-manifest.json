@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/finder-gp/static/css/main.4381e9fa.css",
+    "main.js": "/finder-gp/static/js/main.e176b07a.js",
+    "index.html": "/finder-gp/index.html",
+    "main.4381e9fa.css.map": "/finder-gp/static/css/main.4381e9fa.css.map",
+    "main.e176b07a.js.map": "/finder-gp/static/js/main.e176b07a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4381e9fa.css",
+    "static/js/main.e176b07a.js"
+  ]
+}
